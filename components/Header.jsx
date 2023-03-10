@@ -12,11 +12,11 @@ import {AiOutlineShoppingCart} from "react-icons/ai"
     <header>
     <div className=" flex flex-row justify-between bg-white text-black w-screen h-80 p-20">
       <div>
+        <h2 className='text-white	'>Hello</h2>
         <Image src={header} width={150} height={40} />
       </div>
       <div className='flex gap-2'>
         <span className='h-30 w-30'><AiOutlineSearch/></span>
-        {/* <span className='h-30 w-30'><IoPersonOutline/></span> */}
         <span className='h-30 w-30'><AiOutlineShoppingCart/></span>
       </div>
     </div>
