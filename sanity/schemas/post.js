@@ -2,64 +2,41 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'post',
-  title: 'Post',
+  title: 'post',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'image',
+      title: 'image',
+      type: 'image',
+      options: {
+        hotspot: "true",
+      },
+    }),
+    defineField({
+      name: 'name',
+      title: 'name',
       type: 'string',
     }),
     defineField({
       name: 'slug',
-      title: 'Slug',
+      title: 'slug',
       type: 'slug',
       options: {
-        source: 'title',
-        maxLength: 96,
+        source: "name",
+        maxLength: 90,
       },
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
-    }),
-    defineField({
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
+      name: 'price',
+      title: 'price',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of : [{type: 'number'}]
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
-    }),
-    defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
+      name: 'detail',
+      title: 'detail',
+      type: 'string',
     }),
   ],
-
-  preview: {
-    select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
-    },
-    prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
-    },
-  },
 })
