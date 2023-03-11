@@ -2,9 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Header from "../components/Header";
-import NavBar from "../components/Navbar";
 import Main from "../components/Main";
 import Items from "../components/Items";
+import Products from "../components/Products";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +19,9 @@ export default function Home() {
       </Head>
       <main>
         <Header/>
-        <NavBar/>
         <Main/>
         <Items/>
+        <Products/>
       </main>
     </div>
   );
