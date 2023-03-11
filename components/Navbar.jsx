@@ -4,20 +4,16 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const NavBar = () => {
   return (
-    <header>
-      <div className=" flex flex-row justify-between bg-white text-black w-screen h-80 p-20">
-        <div>
-          {/* <Image src={bed} width={60} height={40} /> */}
-        </div>
-        <div className='flex gap-2'>
-            <AiOutlineSearch/>
-            <AiOutlineShoppingCart/>
-        {/* <span className='h-30 w-30'>{<AiOutlineSearch className="h-30 w-30"/>}</span>
-        <span className='h-30 w-30'>{<IoPersonOutline  className="h-30 w-30"/>}</span>
-        <span className='h-30 w-30'>{<AiOutlineShoppingCart  className="h-30 w-30"/>}</span> */}
-      </div>
-      </div>
-    </header>
+    <nav className="bg-black h-14 w-screen">
+      <ul className="flex flex-row justify-center items-center gap-5 text-white p-4">
+        <li className="list-none">Home</li>
+        <li  className="list-none">About</li>
+        <li  className="list-none">Home Furniture</li>
+        <li  className="list-none">Office Furniture</li>
+        <li  className="list-none">Hospital Furniture</li>
+        <li  className="list-none">Contact</li>
+      </ul>
+    </nav>
   );
 };
 

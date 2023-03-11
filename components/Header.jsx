@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import header from "../images/header.png"
 import {AiOutlineSearch} from "react-icons/ai"
-import {IoPersonOutline} from "react-icons/io"
+import {BsFillPersonFill} from "react-icons/bs"
 import {AiOutlineShoppingCart} from "react-icons/ai"
 
 
@@ -10,14 +10,14 @@ import {AiOutlineShoppingCart} from "react-icons/ai"
  const Header = () => {
   return (
     <header>
-    <div className=" flex flex-row justify-between bg-white text-black w-screen h-80 p-20">
+    <div className=" flex flex-row justify-between items-center	bg-white text-black w-screen h-20 p-14">
       <div>
-        <h2 className='text-white	'>Hello</h2>
         <Image src={header} width={150} height={40} />
       </div>
-      <div className='flex gap-2'>
-        <span className='h-30 w-30'><AiOutlineSearch/></span>
-        <span className='h-30 w-30'><AiOutlineShoppingCart/></span>
+      <div className='flex gap-5'>
+        <span><AiOutlineSearch className='h-5 w-5'/></span>
+        <span><BsFillPersonFill className='h-5 w-5'/></span>
+        <span><AiOutlineShoppingCart className='h-5 w-5'/></span>
       </div>
     </div>
   </header>
