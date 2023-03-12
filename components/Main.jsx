@@ -14,7 +14,7 @@ const Main = () => {
         <button className='bg-[#fbbf24] text-white h-[40px] w-[130px]'>Buy Now</button>
       </div>
       <div className=' flex flex-col'>
-        <Image src={slider1} height={100} width={400} />
+        <Image src={slider1} alt="main" height={100} width={400} />
       </div>
     </div>
   )

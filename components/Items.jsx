@@ -10,7 +10,7 @@ const Items = () => {
       {data.map((items, index)=>{
         return(
             <div className='flex flex-col justify-center items-center h-[180px] w-[180px] border-2	border-black rounded-[100px]' key={index}>
-                <Image src={items.image} width={50} height={50}/>
+                <Image src={items.image} alt="items" width={50} height={50}/>
                 <b>{items.title}</b>
             </div>   
         )
