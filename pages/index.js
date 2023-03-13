@@ -5,10 +5,14 @@ import Header from "../components/Header";
 import Main from "../components/Main";
 import Items from "../components/Items";
 import Products from "../components/Products";
+import { client } from "../lib/client";
+import React, { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({data}) {
+
+
   return (
     <div className="container">
       <Head>
@@ -26,3 +30,15 @@ export default function Home() {
     </div>
   );
 }
+
+
+export const getServerSideProps = async()=>{
+  const query = '*[_type == "post"]';
+  const data = await client.fetch(query);
+  return {
+    props: {
+      data,
+    }
+  }
+}
+

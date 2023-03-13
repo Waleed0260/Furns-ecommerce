@@ -12,7 +12,7 @@ import {AiOutlineShoppingCart} from "react-icons/ai"
     <header>
     <div className=" flex flex-row justify-between items-center	bg-white text-black w-screen h-20 p-14">
       <div>
-        <Image src={header} alt="header" width={150} height={40} />
+        <Image src={header} alt="header" width={150} height={40}  />
       </div>
       <div className='flex gap-5'>
         <span><AiOutlineSearch className='h-5 w-5'/></span>
