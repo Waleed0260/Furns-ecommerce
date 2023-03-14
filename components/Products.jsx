@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import { client } from "../lib/client";
 import useSWR from "swr";
 
-const Products = () => {
+const Products = ({json}) => {
 
-  const { data, error } = useSWR("/api/product", (url) =>
-    fetch(url).then((res))
-  );
-  console.log(data);
+  // const { data, error } = useSWR("/api/product", (url) =>
+  //   fetch(url).then((res))
+  // );
+  // console.log(data);
 
-  // const[searched, setSearched] = useState([])
+  console.log(json);
+
+  const[searched, setSearched] = useState([])
 
   // const getSearched = async () => {
   //   const url = 'https://jsonplaceholder.typicode.com/todos';
@@ -32,7 +34,16 @@ const Products = () => {
   // console.log('searched:', searched);
 
   
+  const getSearched = async()=>{
+    const url = '*[type == "post"]'
+    const data = await client.fetch(url)
+    setSearched(data);
+  }
+  useEffect(() => {
+    getSearched();
+  }, []);
   
+  console.log('searched:', searched);
 
   return (
     <>
@@ -55,5 +66,8 @@ const Products = () => {
     </>
   );
 };
+
+
+
 
 export default Products;

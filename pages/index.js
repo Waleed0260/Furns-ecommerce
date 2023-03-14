@@ -7,11 +7,25 @@ import Items from "../components/Items";
 import Products from "../components/Products";
 import { client } from "../lib/client";
 import React, { useEffect, useState } from "react";
+import useSWR from "swr";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({data}) {
 
+  const {data, error} = useSWR('*[_type == "post"]')
+
+  // const[searched, setSearched] = useState([])
+  // const getSearched = async()=>{
+  //   const url = '*[type == "post"]'
+  //   const data = await client.fetch(url)
+  //   setSearched(data);
+  // }
+  // useEffect(() => {
+  //   getSearched();
+  // }, []);
+  
+  // console.log('searched:', searched);
 
   return (
     <div className="container">
@@ -30,6 +44,7 @@ export default function Home({data}) {
     </div>
   );
 }
+
 
 
 export const getServerSideProps = async()=>{
