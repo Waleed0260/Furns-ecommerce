@@ -11,21 +11,9 @@ import useSWR from "swr";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({data}) {
+export default function Home({post, category, trending}) {
 
-  const {data, error} = useSWR('*[_type == "post"]')
 
-  // const[searched, setSearched] = useState([])
-  // const getSearched = async()=>{
-  //   const url = '*[type == "post"]'
-  //   const data = await client.fetch(url)
-  //   setSearched(data);
-  // }
-  // useEffect(() => {
-  //   getSearched();
-  // }, []);
-  
-  // console.log('searched:', searched);
 
   return (
     <div className="container">
@@ -39,7 +27,7 @@ export default function Home({data}) {
         <Header/>
         <Main/>
         <Items/>
-        <Products/>
+        <Products post={post} category={category} trending={trending}/>
       </main>
     </div>
   );
@@ -49,11 +37,18 @@ export default function Home({data}) {
 
 export const getServerSideProps = async()=>{
   const query = '*[_type == "post"]';
-  const data = await client.fetch(query);
+  const post = await client.fetch(query);
+  const url = '*[_type == "category"]';
+  const category = await client.fetch(url);
+  const items = '*[_type == "trending"]';
+  const trending = await client.fetch(items);
   return {
     props: {
-      data,
+      post,
+      category,
+      trending,
     }
   }
 }
+
 

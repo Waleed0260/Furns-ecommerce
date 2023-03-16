@@ -1,49 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { client } from "../lib/client";
-import useSWR from "swr";
 
-const Products = ({json}) => {
 
-  // const { data, error } = useSWR("/api/product", (url) =>
-  //   fetch(url).then((res))
-  // );
-  // console.log(data);
+const Products = ({post, cataegory, trending}) => {
 
-  console.log(json);
-
-  const[searched, setSearched] = useState([])
-
-  // const getSearched = async () => {
-  //   const url = 'https://jsonplaceholder.typicode.com/todos';
-  //   try {
-  //     const response = await fetch(url);
-  //     if (response.status >= 400) {
-  //       throw new Error('Bad response from server');
-  //     }
-  //     const data = await response.json();
-  //     setSearched(data);
-  //   } catch (error) {
-  //     console.error('Error fetching data:', error);
-  //   }
-  // };
-  
-  // useEffect(() => {
-  //   getSearched();
-  // }, []);
-  
-  // console.log('searched:', searched);
-
-  
-  const getSearched = async()=>{
-    const url = '*[type == "post"]'
-    const data = await client.fetch(url)
-    setSearched(data);
-  }
-  useEffect(() => {
-    getSearched();
-  }, []);
-  
-  console.log('searched:', searched);
 
   return (
     <>
@@ -60,9 +19,6 @@ const Products = ({json}) => {
           <b>Trending</b>
         </div>
       </div>
-      {/* {searched.map((items)=>{
-      <h1>{items.name}</h1>
-    })} */}
     </>
   );
 };
