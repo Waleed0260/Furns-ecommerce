@@ -11,7 +11,7 @@ const Main = () => {
         <p className='text-2xl text-[#737373]'>New Products</p>
         <h1 className='text-5xl font-bold '>Flexible Chair</h1>
         <p className='w-[520px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam fugit fuga illum aut delectus non deserunt eligendi. Est, vitae rerum?</p>
-        <button className='bg-[#fbbf24] text-white h-[40px] w-[130px]'>Buy Now</button>
+        <button className='bg-[#f97316] text-white h-[50px] w-[150px]'>Buy Now</button>
       </div>
       <div className=' flex flex-col'>
         <Image src={slider1} alt="main" height={100} width={400} />

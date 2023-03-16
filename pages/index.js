@@ -8,14 +8,19 @@ import Products from "../components/Products";
 import { client } from "../lib/client";
 import React, { useEffect, useState } from "react";
 import useSWR from "swr";
+import Sale from "../components/Sale";
+import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({post, category, trending}) {
 
+  console.log(post)
 
 
   return (
+    <Layout>
     <div className="container">
       <Head>
         <title>Create Next App</title>
@@ -24,12 +29,13 @@ export default function Home({post, category, trending}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header/>
         <Main/>
         <Items/>
         <Products post={post} category={category} trending={trending}/>
+        <Sale/>
       </main>
     </div>
+    </Layout>
   );
 }
 
