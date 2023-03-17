@@ -49,10 +49,10 @@ const Products = ({post, category, trending}) => {
           tempor incididunt ut labore
         </p>
         <div className="flex flex-row gap-10 p-5">
-          <b className="cursor-pointer" onClick={handleItems}>New Arrival</b>
-          <b className="cursor-pointer" onClick={handleFeature}>Featured</b>
-          <b className="cursor-pointer" onClick={handleSale}>On Sale</b>
-          <b className="cursor-pointer" onClick={handleTrend}>Trending</b>
+          <b className={items ? "text-[#f97316] cursor-pointer": "text-black cursor-pointer"} onClick={handleItems}>New Arrival</b>
+          <b className={feature ? "text-[#f97316] cursor-pointer": "text-black cursor-pointer"} onClick={handleFeature}>Featured</b>
+          <b className={sale ? "text-[#f97316] cursor-pointer": "text-black cursor-pointer"} onClick={handleSale}>On Sale</b>
+          <b className={trend ? "text-[#f97316] cursor-pointer": "text-black cursor-pointer"} onClick={handleTrend}>Trending</b>
         </div>
         <div className="grid grid-cols-4 gap-12 ml-14 p-6	">
           {/* <ProductsPage post={post}/> */}
