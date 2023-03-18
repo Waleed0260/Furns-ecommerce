@@ -30,8 +30,7 @@ export default defineType({
     defineField({
       name: 'price',
       title: 'price',
-      type: 'array',
-      of : [{type: 'number'}]
+      type: 'string',
     }),
     defineField({
       name: 'detail',

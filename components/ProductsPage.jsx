@@ -9,8 +9,14 @@ import Link from "next/link";
 
 const ProductsPage = ({ items, src }) => {
   const [hover, setHover] = useState(false);
+
+
+  const handleMouseOver = ()=>{
+      setHover(true);
+  }
+
   return (
-    <div className="flex flex-col justify-center items-center cursor-pointer w-[270px] h-[370px]" key={items.name} onMouseOver={() => setHover(true)}
+    <div className="flex flex-col justify-center items-center cursor-pointer w-[270px] h-[370px]" key={items.name} onMouseOver={handleMouseOver}
     onMouseLeave={() => setHover(false)}>
       <span className="bg-[#cbd5e1] p-3 relative top-12 left-24 rounded-[100px]  duration-500 hover:bg-[#f97316] hover:text-white"><AiOutlineHeart/></span>
 
@@ -25,10 +31,10 @@ const ProductsPage = ({ items, src }) => {
         />
         </Link>
       </div>
-      {hover && <div className="flex flex-row bg-[white] text-black justify-center items-center p-2 -mt-12 z-10 duration-500 hover:bg-[#f97316] hover:text-white"><AiOutlineShoppingCart/>Add to cart</div>}
+      {hover && <div className="flex flex-row bg-[white] text-black w-[200px] justify-center items-center p-2 -mt-12 z-10 duration-500 hover:bg-[#f97316] hover:text-white"><AiOutlineShoppingCart/>     Add to cart</div>}
       <div className="flex flex-col justify-center items-center mt-4">
         <b>{items.name.slice(0, 18)}...</b>
-        <b>$ {items.price[0]}</b>
+        <b>$ {items.price}</b>
       </div>
     </div>
   );
