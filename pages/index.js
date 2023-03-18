@@ -11,6 +11,7 @@ import useSWR from "swr";
 import Sale from "../components/Sale";
 import Footer from "../components/Footer";
 import Layout from "../components/Layout";
+import SideCart from "../components/SideCart";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function Home({post, category, trending}) {
         <Items/>
         <Products post={post} category={category} trending={trending}/>
         <Sale/>
+        <SideCart/>
       </main>
     </div>
     </Layout>

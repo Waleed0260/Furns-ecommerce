@@ -60,20 +60,20 @@ const Products = ({post, category, trending}) => {
           const src = urlFor(items.image).url();
             return(
               <>
-              <ProductsPage items={items} src={src} key={i}/>
+              <ProductsPage items={items} src={src}/>
               </>
             )
           })}
           {feature && category.map((items, i)=>{
           const src = urlFor(items.image).url();
             return(
-              <ProductsPage items={items} src={src} key={i}/>
+              <ProductsPage items={items} src={src}/>
             )
           })}
           {trend && trending.map((items, i)=>{
           const src = urlFor(items.image).url();
             return(
-              <ProductsPage items={items} src={src} key={i}/>
+              <ProductsPage items={items} src={src}/>
             )
           })}
         </div>
