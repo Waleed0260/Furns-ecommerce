@@ -5,7 +5,7 @@ import {AiOutlineSearch} from "react-icons/ai"
 import {BsPerson} from "react-icons/bs"
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import Link from 'next/link'
-
+import SideCart from './SideCart'
 
 
  const Header = () => {
@@ -25,6 +25,7 @@ import Link from 'next/link'
 
 
   return (
+    <>
     <header>
     <div className=" flex flex-row justify-between items-center	bg-white text-black w-screen h-20 p-14">
       <div>
@@ -64,8 +65,9 @@ import Link from 'next/link'
         <li  className="list-none">Contact</li>
       </ul>
     </nav>
-
   </header>
+  <SideCart/>
+  </>
   )
 }
 

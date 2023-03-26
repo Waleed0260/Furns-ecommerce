@@ -12,7 +12,7 @@ const Main = () => {
         <p className='text-2xl text-[#737373]'>New Products</p>
         <h1 className='text-5xl font-bold '>Flexible Chair</h1>
         <p className='w-[520px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam fugit fuga illum aut delectus non deserunt eligendi. Est, vitae rerum?</p>
-        <Link href="/shop">
+        <Link href="/shop" className=' w-[150px]'>
         <button className='bg-[#f97316] text-white h-[50px] w-[150px] hover:bg-black hover:text-[#f97316] duration-500'>Buy Now</button>
         </Link>
       </div>
