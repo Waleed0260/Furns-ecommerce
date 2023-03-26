@@ -34,9 +34,9 @@ import Link from 'next/link'
       </div>
       <div className='flex flex-col absolute top-[40px] right-[120px]'>
         <div className='flex flex-row gap-5'>
-        <span><AiOutlineSearch className='h-6 w-6'/></span>
-        <span onClick={handleClick}><BsPerson className='h-6 w-6 cursor-pointer'/></span>
-        <span><AiOutlineShoppingCart className='h-6 w-6'/></span>
+        <span><AiOutlineSearch className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
+        <span onClick={handleClick}><BsPerson className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
+        <span><AiOutlineShoppingCart className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         </div>
 
         {options ?
