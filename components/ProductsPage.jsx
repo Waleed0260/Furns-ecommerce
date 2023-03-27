@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import {HiArrowsPointingOut} from "react-icons/hi"
-import {IoGitCompareOutline} from "react-icons/io"
+// import {HiArrowsPointingOut} from "react-icons/hi"
+// import {IoGitCompareOutline} from "react-icons/io"
 import {AiOutlineShoppingCart, AiOutlineHeart} from "react-icons/ai"
 import Link from "next/link";
 import { useStore } from "../store";
@@ -10,19 +10,22 @@ import { useStore } from "../store";
 const ProductsPage = ({ items, src }) => {
   const [hover, setHover] = useState(false);
   const [clickCount, setClickCount] = useState(1);
+  const [Quantity, setQuantity] = useState(1);
 
   const handleMouseOver = ()=>{
       setHover(true);
   }
 
-  const addPizza = useStore((state) => state.addItem);
+  const addItem = useStore((state) => state.addItem);
   const handleCart= ()=>{
     setClickCount(prevCount => prevCount + 1);
     if (clickCount === 1) {
-      addPizza()
+      addItem({...items, quantity: Quantity})
     } else {
+
     }
   }
+
 
   return (
     <div className="flex flex-col justify-center items-center cursor-pointer w-[270px] h-[370px]" key={items.name} onMouseOver={handleMouseOver}

@@ -42,23 +42,17 @@ const product = ({ details }) => {
 
   const src = urlFor(details.image).url();
 
-  const addPizza = useStore((state) => state.addItem);
+  const addItem = useStore((state) => state.addItem);
   const handleCart= ()=>{
-    console.log("details:", details);
-    console.log("clickCount:", clickCount);
     setClickCount(prevCount => prevCount + 1);
     const newTotal = details.price * Quantity;
     if (clickCount === 1) {
-      addPizza({...details, quantity: Quantity, total: newTotal});
+      addItem({...details, quantity: Quantity, price: details.price});
       setClickCount(0);
-
     } else {
-      const previousTotal = details.total - (details.price * details.quantity);
-      addPizza({...details, quantity: Quantity, total: previousTotal + newTotal});
-      setClickCount(0);
+      addItem({...details, quantity: Quantity, price: details.price})
 
     }
-    // setDoto({ ...details, total: 0 });
   }
 
 
