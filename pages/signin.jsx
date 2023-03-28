@@ -1,0 +1,31 @@
+import React from 'react'
+import Layout from '../components/Layout'
+
+const signin = () => {
+  return (
+    <Layout>
+        <div className="w-screen h-[250px] bg-[#ccfbf1] flex flex-col justify-center items-center gap-3 mb-4">
+        <h2 className="text-5xl font-bold">LOGIN</h2>
+        <p>HOME/SIGNIN</p>
+      </div>
+      <div className='flex justify-center items-center my-12'>
+      <div className='h-[400px] w-[500px] shadow-2xl flex flex-col items-center'>
+        <form action="" className='flex flex-col gap-3 my-6'>
+            <label>Email</label>
+            <input type="email" name="" id=""  className='h-[40px] w-[430px] border-2' placeholder='Email address'/>
+            <label>Password</label>
+            <input type="password" name="" id="" className='h-[40px] w-[430px] border-2' placeholder='Password'/>
+            <button className='bg-[#f97316] h-[45px] w-[430px] text-white hover:bg-[#44403c] duration-300 my-4'>SIGN IN</button>
+        </form>
+        <div className='flex flex-row w-[430px] gap-2 items-center justify-center'>
+        <button className='w-[49%] h-[45px] bg-[#44403c] hover:bg-[#ccfbf1] text-white duration-300'>Create Account</button>
+        <button className='w-[49%] h-[45px] bg-[#ccfbf1] hover:bg-[#44403c] duration-300'>Forget Password</button>
+      </div>
+      </div>
+
+      </div>
+    </Layout>
+  )
+}
+
+export default signin

@@ -30,7 +30,6 @@ export async function getStaticProps(context) {
 const product = ({ details }) => {
   const [clickCount, setClickCount] = useState(1);
   const [Quantity, setQuantity] = useState(1);
-  const [pizza, setPizza] = useState({});
 
   const handleQuantity = (type) => {
     type === "inc"
@@ -45,7 +44,6 @@ const product = ({ details }) => {
   const addItem = useStore((state) => state.addItem);
   const handleCart= ()=>{
     setClickCount(prevCount => prevCount + 1);
-    const newTotal = details.price * Quantity;
     if (clickCount === 1) {
       addItem({...details, quantity: Quantity, price: details.price});
       setClickCount(0);
@@ -61,7 +59,7 @@ const product = ({ details }) => {
   return (
     <Layout>
       <div className="w-screen h-[250px] bg-[#ccfbf1] flex flex-col justify-center items-center gap-3 mb-4">
-        <h2 className="text-5xl font-bold">{details.name}</h2>
+        <h2 className="text-5xl font-bold">{details.name.slice(0,50)}...</h2>
         <p>HOME/PRODUCTS/{details.name.slice(0, 30)}...</p>
       </div>
       <div className="flex flex-row justify-between p-20 gap-4">
