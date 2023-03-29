@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import Layout from "../../components/Layout";
 import { client, urlFor } from "../../lib/client";
 import { useStore } from "../../store";
-
+import toast, { Toaster } from "react-hot-toast";
 
 export async function getStaticPaths() {
   const paths = await client.fetch(
@@ -47,6 +47,12 @@ const product = ({ details }) => {
     if (clickCount === 1) {
       addItem({...details, quantity: Quantity, price: details.price});
       setClickCount(0);
+      toast.success(
+        ("Successfully toasted!.\n\, Your product is added to cart"),
+        {
+          duration: 4000,
+        }
+      );
     } else {
       addItem({...details, quantity: Quantity, price: details.price})
 
@@ -91,6 +97,10 @@ const product = ({ details }) => {
           </div>
         </div>
       </div>
+      <Toaster
+  position="top-right"
+  reverseOrder={false}
+/>
     </Layout>
   );
 };

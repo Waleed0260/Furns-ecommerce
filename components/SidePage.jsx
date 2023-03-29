@@ -4,24 +4,40 @@ import { useStore } from "../store";
 import { urlFor } from "../lib/client";
 import { FaSkullCrossbones } from "react-icons/fa";
 import Link from "next/link";
+import {AiOutlineShoppingCart} from "react-icons/ai"
+import toast, { Toaster } from "react-hot-toast";
+
+
 const SidePage = ({ open, close }) => {
   if (!open) return null;
-  const [cartTotal, setCartTotal] = useState(0);
 
 
   const CartData = useStore((state) => state.cart);
+
+  const removeItem = useStore((state) => state.removeItem);
+
+  const handleRemove = (i) => {
+    removeItem(i);
+    toast.error(
+      ("Successfully toasted!.\n\, Your product is deleted from cart"),
+      {
+        duration: 4000,
+      }
+    );  
+  };
 
   const total = () =>
     CartData.items.reduce((a, b) => a + b.quantity * b.price, 0);
 
   return (
+    <>
     <div className="fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)] z-[1000]">
       <div className="bg-white w-[28rem] z-[1000] fixed top-0 bottom-0 right-0 flex flex-col overflow-visible">
         <div className="flex flex-col justify-between items-center">
           <div className="h-[60px] w-[24rem] flex flex-row justify-between items-center p-[20px]">
             <b>Cart</b>
             <span>
-              <FaSkullCrossbones onClick={close}/>
+              <FaSkullCrossbones onClick={close} className="cursor-pointer"/>
             </span>
             
           </div>
@@ -33,6 +49,7 @@ const SidePage = ({ open, close }) => {
                   const total = items.quantity * items.price;
                   
                   return (
+                    <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row justify-evenly h-[140px]" key={i}>
                       <Image
                         loader={() => src}
@@ -46,9 +63,18 @@ const SidePage = ({ open, close }) => {
                         <b>Total: <span className="text-[#f97316]">${total}</span></b>
                       </div>
                     </div>
+                    <div>
+                    <FaSkullCrossbones className="cursor-pointer" onClick={()=> handleRemove(i)}/>
+                    </div>
+                    </div>
+
                   );
                 })
-              : <b>No product added</b>}
+              : 
+              <div className="flex flex-col justify-center items-center my-24">
+              <span><AiOutlineShoppingCart className="h-[60px] w-[60px] text-[#f97316]"/></span>
+              <b>No product added</b>
+                </div>}
           </div>
           <Link href="/cart">
           <div className=" cursor-pointer h-[60px] w-[24rem] bg-[#f97316] flex flex-row justify-between items-center text-white p-[20px] hover:bg-[#44403c] duration-300">
@@ -63,6 +89,11 @@ const SidePage = ({ open, close }) => {
         </div>
       </div>
     </div>
+    <Toaster
+  position="top-right"
+  reverseOrder={false}
+/>
+    </>
   );
 };
 

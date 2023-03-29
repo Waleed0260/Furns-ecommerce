@@ -6,9 +6,12 @@ import {BsPerson} from "react-icons/bs"
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import Link from 'next/link'
 import SideCart from './SideCart'
-
+import { useStore } from '../store'
 
  const Header = () => {
+
+  const number = useStore((state)=> state.cart.items.length);
+
 
   const [options, setOptions] = useState(false);
   const [clickCount, setClickCount] = useState(0);
@@ -37,9 +40,11 @@ import SideCart from './SideCart'
         <div className='flex flex-row gap-5'>
         <span><AiOutlineSearch className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <span onClick={handleClick}><BsPerson className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
-        <span><AiOutlineShoppingCart className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
+        <div className='flex flex-end gap-4 z-50 cursor-pointer '>
+        <span><AiOutlineShoppingCart className='h-[28px] w-[28px] cursor-pointer hover:text-[#f97316] duration-200'/></span>
+        <div className='absolute flex justify-center items-center bg-[#f97316] text-white h-[15px] w-[15px] rounded-[50%]'>{number}</div>
         </div>
-
+        </div>
         {options ?
     <div className='bg-white text-black flex shadow-2xl'>
       <ul className='flex flex-col gap-4 p-[10px]'>
