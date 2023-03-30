@@ -76,7 +76,7 @@ const SidePage = ({ open, close }) => {
               <b>No product added</b>
                 </div>}
           </div>
-          <Link href="/cart">
+          <Link href="/data">
           <div className=" cursor-pointer h-[60px] w-[24rem] bg-[#f97316] flex flex-row justify-between items-center text-white p-[20px] hover:bg-[#44403c] duration-300">
             <b>View Cart</b>
             <button

@@ -13,8 +13,9 @@ import { useStore } from '../store'
   const number = useStore((state)=> state.cart.items.length);
 
 
+
   const [options, setOptions] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
+  const [clickCount, setClickCount] = useState(1);
 
   const handleClick = () => {
     setClickCount(prevCount => prevCount + 1);
@@ -48,10 +49,10 @@ import { useStore } from '../store'
         {options ?
     <div className='bg-white text-black flex shadow-2xl'>
       <ul className='flex flex-col gap-4 p-[10px]'>
-        <li className='cursor-pointer'>Sign in</li>
-        <li className='cursor-pointer'>Cart</li>
-        <li className='cursor-pointer'>Wishlist</li>
-        <li className='cursor-pointer'>Compare</li>
+        <li className='cursor-pointer hover:text-[#f97316] duration-100'>Sign in</li>
+        <li className='cursor-pointer hover:text-[#f97316] duration-100'> <Link href="/data">Cart</Link> </li>
+        <li className='cursor-pointer hover:text-[#f97316] duration-100'><Link href="/wishlist">Wishlist</Link></li>
+        <li className='cursor-pointer hover:text-[#f97316] duration-100'>Compare</li>
       </ul>
     </div>
     :

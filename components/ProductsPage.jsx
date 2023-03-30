@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 // import {HiArrowsPointingOut} from "react-icons/hi"
 // import {IoGitCompareOutline} from "react-icons/io"
-import {AiOutlineShoppingCart, AiOutlineHeart} from "react-icons/ai"
+import {AiOutlineShoppingCart, AiOutlineHeart, AiOutlineDelete} from "react-icons/ai"
 import Link from "next/link";
 import { useStore } from "../store";
 import toast, { Toaster } from "react-hot-toast";
@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 const ProductsPage = ({ items, src }) => {
   const [hover, setHover] = useState(false);
   const [clickCount, setClickCount] = useState(1);
-  const [Quantity, setQuantity] = useState(1);
+  const[clickWish, setClickWish] = useState(1);
 
   const handleMouseOver = ()=>{
       setHover(true);
@@ -20,11 +20,11 @@ const ProductsPage = ({ items, src }) => {
   const handleCart= ()=>{
     setClickCount(prevCount => prevCount + 1);
     if (clickCount === 1) {
-      addItem({...items, quantity: Quantity})
+      addItem({...items, quantity: 1})
       toast.success(
-        ("Successfully toasted!.\n\, Your product is added to cart"),
+        ("Successfully Added!.\n\, Your product is added to cart"),
         {
-          duration: 4000,
+          duration: 2000,
         }
       );    } else {
 
@@ -32,15 +32,36 @@ const ProductsPage = ({ items, src }) => {
   }
 
   const addWish = useStore((state) => state.addWish);
+  const removeWish = useStore((state) => state.removeWish);
+
   const handleWish= ()=>{
+    setClickWish(prevCount => prevCount + 1);
+    if(clickWish === 1) {
     addWish({...items,})
+    toast.success(
+      ("Successfully Added!.\n\, Your product is added to wishlist"),
+      {
+        duration: 2000,
+      }
+    );
+    }
+    else{
+      setClickWish(1);
+      removeWish({...items,})
+    toast.error(
+      ("Successfully deleted!.\n\, Your product is deleted to wishlist"),
+      {
+        duration: 2000,
+      }
+    ); 
+    }
   }
 
   return (
     <>
     <div className="flex flex-col justify-center items-center cursor-pointer w-[270px] h-[370px]" key={items.name} onMouseOver={handleMouseOver}
     onMouseLeave={() => setHover(false)}>
-      <span className="bg-[#cbd5e1] p-3 relative top-12 left-24 rounded-[100px]  duration-500 hover:bg-[#f97316] hover:text-white" onClick={handleWish}><AiOutlineHeart/></span>
+      <span className="bg-[#cbd5e1] p-3 relative top-12 left-24 rounded-[100px]  duration-500 hover:bg-[#f97316] hover:text-white" onClick={handleWish}>{clickWish === 1 ? <AiOutlineHeart/>: <AiOutlineDelete/>}</span>
 
       <div className="flex justify-center">
         <Link href={`/product/${items.slug.current}`}>

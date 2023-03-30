@@ -1,35 +1,76 @@
-import React from 'react'
-import { useStore } from '../store';
-import Layout from '../components/Layout';
-import {AiOutlineShoppingCart, AiOutlineHeart} from "react-icons/ai"
+import React, { useState } from "react";
+import { useStore } from "../store";
+import Layout from "../components/Layout";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { urlFor } from "../lib/client";
+import { FaSkullCrossbones } from "react-icons/fa";
+import Image from "next/image";
+import toast, { Toaster } from "react-hot-toast";
 
 const wishlist = () => {
-    const CartData = useStore((state) => state.wishlist);
+  const CartData = useStore((state) => state.wishlist);
+  const removeItem = useStore((state) => state.removeWish);
 
+  const [Quantity, setQuantity] = useState(1);
+
+  const handleQuantity = (type) => {
+    type === "inc"
+      ? setQuantity((prev) => prev + 1)
+      : Quantity === 1
+      ? null
+      : setQuantity((prev) => prev - 1);
+  };
+
+  const addItem = useStore((state) => state.addItem);
+
+  const handleRemove = (i) => {
+    removeItem(i);
+    toast.error(
+      ("Successfully deleted!.\n\, Your product is deleted from cart"),
+      {
+        duration: 4000,
+      }
+    );  
+  };
 
   return (
-   <Layout>
+    <Layout>
       <div className="w-screen h-[250px] bg-[#ccfbf1] flex flex-col justify-center items-center gap-3 mb-4">
-        <h2 className="text-5xl font-bold">Cart</h2>
-        <p>HOME/CART</p>
+        <h2 className="text-5xl font-bold">WISHLIST</h2>
+        <p>HOME/WISH</p>
       </div>
       <div className="flex justify-center items-center flex-col py-12">
-        <table className="w-[62rem]">
-          <thead className="bg-[#ccfbf1] h-16">
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody className="m-10">
-            {CartData.wish.length > 0
-              ? CartData.wish.map((items, i) => {
-                  const src = urlFor(items.image).url();
-                  return (
+        
+              <>
+              {CartData.wish.length > 0 ? (
+          CartData.wish.map((items, i) => {
+            const src = urlFor(items.image).url();
+            
+            const handleCart= ()=>{
+                addItem({...items, quantity: Quantity, price: items.price});
+                toast.success(
+                  ("Successfully Added!.\n\, Your product is added to cart"),
+                  {
+                    duration: 2000,
+                  }
+                );    
+            }
+            return (
+
+                <table className="w-[67rem]">
+                  <thead className="bg-[#ccfbf1] h-16">
+                    <tr>
+                      <th>Image</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>QTY</th>
+                      <th>Add to cart</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  
+
+                  <tbody className="m-10">
                     <tr className="border-2" key={i}>
                       <td className=" flex justify-center items-center text-center py-3">
                         <Image
@@ -45,45 +86,61 @@ const wishlist = () => {
                         <b>{items.name}</b>
                       </td>
                       <td className="text-center">{items.price}</td>
-                      <td className="text-center">{items.quantity}</td>
                       <td className="text-center">
-                        {items.price * items.quantity}
+                        <div className="flex flex-row justify-center items-center p-2 ">
+                          <span
+                          className="border-[#f97316] border-[1px] h-[50px] w-[20px] flex justify-center items-center duration-500 hover:bg-[#f97316] hover:text-white cursor-pointer"
+                            onClick={() => handleQuantity("dec")}
+                          >
+                            -
+                          </span>
+                          <span className="border-[#f97316] border-[1px] h-[50px] w-[40px] border-l-0 flex justify-center items-center">
+                            {Quantity}
+                          </span>
+                          <span
+                            className="border-[#f97316] border-[1px] h-[50px] w-[20px] border-l-0 flex justify-center items-center duration-500 hover:bg-[#f97316] hover:text-white cursor-pointer"
+                            onClick={() => handleQuantity("inc")}
+                          >
+                            +
+                          </span>
+                        </div>
                       </td>
-                      <td className="text-center px-5 " onClick={()=> handleRemove(i)}>
+                      <td className="text-center">
+                        <button
+                          className="bg-[#f97316] text-white h-[30px] w-[90px]"
+                          onClick={handleCart}
+                        >
+                          Add to cart
+                        </button>
+                      </td>
+                      <td
+                        className="text-center px-5 "
+                        onClick={() => handleRemove(i)}
+                      >
                         <FaSkullCrossbones className="hover:text-[#f97316] cursor-pointer" />
                       </td>
                     </tr>
-                  );
-                })
-              : <div className="flex flex-col justify-center items-center">
-                <span><AiOutlineShoppingCart className="h-[50px] w-[50px] text-[#f97316]"/></span>
+                  </tbody>
+                 
+                </table>
+                );
+              })
+            ) : (
+              <div className="flex flex-col justify-center items-center">
+                <span>
+                  <AiOutlineShoppingCart className="h-[50px] w-[50px] text-[#f97316]" />
+                </span>
                 <b>You have not added any items</b>
-                </div>}
-          </tbody>
-        </table>
-        <div className="flex justify-end items-center gap-4 h-[60px] border-t-0 border-2 w-[62rem]">
-          <b className="text-[#f97316] relative right-14">Grand Total:</b>
-          {/* <b className="relative right-12">${total()}</b> */}
-        </div>
+              </div>
+            )}
+              </>
       </div>
-
-
-      <div className=" flex justify-center items-center">
-        {/* <div className="w-[62rem] h-[80px] bg-[#ccfbf1] my-12 flex justify-around items-center gap-3">
-            <form action="">
-                <input type="text" className="h-[50px] w-[220px] border-[#f97316] border-[1px] " placeholder="Enter Coupon Here"/>
-                <button type="submit" className="h-[50px] w-[160px] bg-[#f97316] text-white hover:bg-[#44403c] duration-300"> Apply Coupon</button>
-            </form>
-            <div className="flex gap-2">
-        <button className="h-[50px] w-[160px] bg-[#f97316] hover:bg-[#44403c] text-white duration-300 rounded-[4px]" onClick={resetCart()}>CLEAR CART</button>
-        <Link href="/signin">
-        <button className="h-[50px] w-[250px] bg-[#44403c] hover:bg-[#f97316] text-white duration-300 rounded-[4px]">PROCEED TO CHECKOUT</button>
-        </Link>
-            </div>
-        </div> */}
-      </div>
+      <Toaster
+  position="top-right"
+  reverseOrder={false}
+/>
     </Layout>
-  )
-}
+  );
+};
 
-export default wishlist
+export default wishlist;

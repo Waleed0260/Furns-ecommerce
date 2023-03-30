@@ -4,6 +4,8 @@ import Layout from "../../components/Layout";
 import { client, urlFor } from "../../lib/client";
 import { useStore } from "../../store";
 import toast, { Toaster } from "react-hot-toast";
+import {AiOutlineHeart} from "react-icons/ai"
+
 
 export async function getStaticPaths() {
   const paths = await client.fetch(
@@ -59,7 +61,16 @@ const product = ({ details }) => {
     }
   }
 
-
+  const addWish = useStore((state) => state.addWish);
+  const handleWish= ()=>{
+    addWish({...details,})
+    toast.success(
+      ("Successfully Added!.\n\, Your product is added to wishlist"),
+      {
+        duration: 2000,
+      }
+    ); 
+  }
 
 
   return (
@@ -95,6 +106,7 @@ const product = ({ details }) => {
               Add to cart
             </button>
           </div>
+          <p className="flex flex-row gap-1  items-center cursor-pointer hover:text-[#f97316] duration-100" onClick={handleWish}> <AiOutlineHeart/> Add to wishlist</p>
         </div>
       </div>
       <Toaster
