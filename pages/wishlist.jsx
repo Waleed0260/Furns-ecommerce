@@ -7,7 +7,7 @@ import { FaSkullCrossbones } from "react-icons/fa";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 
-const wishlist = () => {
+const Wishlist = () => {
   const CartData = useStore((state) => state.wishlist);
   const removeItem = useStore((state) => state.removeWish);
 
@@ -57,7 +57,7 @@ const wishlist = () => {
             }
             return (
 
-                <table className="w-[67rem]">
+                <table className="w-[67rem]" key={i}>
                   <thead className="bg-[#ccfbf1] h-16">
                     <tr>
                       <th>Image</th>
@@ -143,4 +143,4 @@ const wishlist = () => {
   );
 };
 
-export default wishlist;
+export default Wishlist;

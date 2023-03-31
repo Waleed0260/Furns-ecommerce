@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useStore } from "../store";
 import toast, { Toaster } from "react-hot-toast";
 
-const ProductsPage = ({ items, src }) => {
+const ProductsPage = ({ items, src, key }) => {
   const [hover, setHover] = useState(false);
   const [clickCount, setClickCount] = useState(1);
   const[clickWish, setClickWish] = useState(1);
@@ -59,7 +59,7 @@ const ProductsPage = ({ items, src }) => {
 
   return (
     <>
-    <div className="flex flex-col justify-center items-center cursor-pointer w-[270px] h-[370px]" key={items.name} onMouseOver={handleMouseOver}
+    <div className="flex flex-col justify-center items-center cursor-pointer w-[270px] h-[370px]" key={key} onMouseOver={handleMouseOver}
     onMouseLeave={() => setHover(false)}>
       <span className="bg-[#cbd5e1] p-3 relative top-12 left-24 rounded-[100px]  duration-500 hover:bg-[#f97316] hover:text-white" onClick={handleWish}>{clickWish === 1 ? <AiOutlineHeart/>: <AiOutlineDelete/>}</span>
 

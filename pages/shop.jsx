@@ -13,10 +13,10 @@ const shop = ({products}) => {
       </div>
       <div className="grid grid-cols-4 gap-12 ml-14 p-6	">
 
-      {products.map((items)=>{
+      {products.map((items, i)=>{
         const src = urlFor(items.image).url();
         return(
-          <ProductsPage items={items} src={src} />
+          <ProductsPage items={items} src={src} key={i}/>
         )
       })}
       </div>

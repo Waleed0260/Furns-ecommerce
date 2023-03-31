@@ -29,7 +29,7 @@ export async function getStaticProps(context) {
   };
 }
 
-const product = ({ details }) => {
+const Product = ({ details }) => {
   const [clickCount, setClickCount] = useState(1);
   const [Quantity, setQuantity] = useState(1);
 
@@ -117,4 +117,4 @@ const product = ({ details }) => {
   );
 };
 
-export default product;
+export default Product;

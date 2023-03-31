@@ -7,7 +7,7 @@ import { FaSkullCrossbones } from "react-icons/fa";
 import Link from "next/link";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const data = () => {
+const Data = () => {
   const CartData = useStore((state) => state.cart);
 
   const resetCart = useStore((state) => state.resetCart);
@@ -49,7 +49,7 @@ const data = () => {
           CartData.items.map((items, i) => {
             const src = urlFor(items.image).url();
             return (
-                <tbody className="m-10">
+                <tbody className="m-10" key={i}>
                   <tr className="border-2" key={i}>
                     <td className=" flex justify-center items-center text-center py-3">
                       <Image
@@ -131,4 +131,4 @@ const data = () => {
   );
 };
 
-export default data;
+export default Data;

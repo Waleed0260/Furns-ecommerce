@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import { useSession, signIn } from 'next-auth/react'
 
 
-const signin = () => {
+const Signin = () => {
 
   const [email, setEmail] = useState('')
   // const [password, setPassword] = useState('')
@@ -48,4 +48,4 @@ const signin = () => {
   )
 }
 
-export default signin
+export default Signin

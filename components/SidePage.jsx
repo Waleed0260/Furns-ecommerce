@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { useStore } from "../store";
 import { urlFor } from "../lib/client";
@@ -9,12 +9,13 @@ import toast, { Toaster } from "react-hot-toast";
 
 
 const SidePage = ({ open, close }) => {
+  const CartData = useStore((state) => state.cart);
+  const CartItems = CartData.items;
+  const removeItem = useStore((state) => state.removeItem);
+
   if (!open) return null;
 
 
-  const CartData = useStore((state) => state.cart);
-
-  const removeItem = useStore((state) => state.removeItem);
 
   const handleRemove = (i) => {
     removeItem(i);
@@ -42,20 +43,21 @@ const SidePage = ({ open, close }) => {
             
           </div>
           <div className="flex flex-col h-[520px] w-[24rem] overflow-auto gap-4">
-            {CartData.items.length > 0
-              ? CartData.items.map((items, i) => {
+            {CartItems.length > 0
+              ? CartItems.map((items, i) => {
                   const src = urlFor(items.image).url();
 
                   const total = items.quantity * items.price;
                   
                   return (
-                    <div className="flex flex-row justify-between items-center">
-                    <div className="flex flex-row justify-evenly h-[140px]" key={i}>
+                    <div className="flex flex-row justify-between items-center" key={i}>
+                    <div className="flex flex-row justify-evenly h-[140px]">
                       <Image
                         loader={() => src}
                         src={src}
                         height={140}
                         width={110}
+                        alt="src"
                       />
                       <div className="flex flex-col">
                         <p className="w-[200px]">{items.name.slice(0,30)}</p>
