@@ -7,10 +7,11 @@ import { client } from "../lib/client";
 import React from "react";
 import Sale from "../components/Sale";
 import Layout from "../components/Layout";
-
+import { motion } from "framer-motion";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({post, category, trending}) {
+
 
 
 
@@ -23,12 +24,13 @@ export default function Home({post, category, trending}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <motion.main
+      >
         <Main/>
          <Items/>
         <Products post={post} category={category} trending={trending}/>
         <Sale/>
-      </main>
+      </motion.main>
     </div>
     </Layout>
   );

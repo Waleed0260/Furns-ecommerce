@@ -1,20 +1,16 @@
 import React, {useState} from 'react'
 import Layout from '../components/Layout'
-import { useSession, signIn } from 'next-auth/react'
 
 
 const Signin = () => {
 
   const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
-
-  const session = useSession();
+  const [password, setPassword] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
   }
 
-  console.log("Session", session)
 
 
 
@@ -35,6 +31,16 @@ const Signin = () => {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email address"
         className='h-[40px] w-[430px] border-2'
+        required
+      />
+      <label>Password</label>
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+        className='h-[40px] w-[430px] border-2'
+        required
       />
       <button type="submit" className='bg-[#f97316] h-[45px] w-[430px] text-white hover:bg-[#44403c] duration-300 my-4'>SIGN IN</button>
     </form>

@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import Layout from "../components/Layout";
 import { useStore } from "../store";
 import { urlFor } from "../lib/client";
 import Image from "next/image";
 import { FaSkullCrossbones } from "react-icons/fa";
-import Link from "next/link";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import OrderModal from "../components/OrderModal";
+
 
 const Data = () => {
   const CartData = useStore((state) => state.cart);
@@ -13,6 +14,15 @@ const Data = () => {
   const resetCart = useStore((state) => state.resetCart);
 
   const removeItem = useStore((state) => state.removeItem);
+
+  const [PaymentMethod, setPaymentMethod] = useState(null);
+
+
+  const handleonDelivery = () => {
+    setPaymentMethod(0);
+    typeof window !== "undefined" && localStorage.getItem("total", total());
+  };
+
 
   const handleRemove = (i) => {
     removeItem(i);
@@ -119,14 +129,17 @@ const Data = () => {
             >
               CLEAR CART
             </button>
-            <Link href="/signin">
-              <button className="h-[50px] w-[250px] bg-[#44403c] hover:bg-[#f97316] text-white duration-300 rounded-[4px]">
-                PROCEED TO CHECKOUT
+              <button className="h-[50px] w-[250px] bg-[#44403c] hover:bg-[#f97316] text-white duration-300 rounded-[4px]" onClick={handleonDelivery}>
+                PAY ON DELIVERY
               </button>
-            </Link>
           </div>
         </div>
       </div>
+      <OrderModal
+        opened={PaymentMethod === 0}
+        setOpened={setPaymentMethod}
+        PaymentMethod={PaymentMethod}
+      />
     </Layout>
   );
 };

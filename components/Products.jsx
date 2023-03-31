@@ -42,7 +42,7 @@ const Products = ({post, category, trending}) => {
 
   return (
     <>
-      <div className="flex justify-center items-center flex-col gap-5">
+      <div className="flex justify-center items-center flex-col gap-5 ">
         <h1 className="text-5xl font-bold">Our Products</h1>
         <p className="w-[450px] text-center">
           Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo

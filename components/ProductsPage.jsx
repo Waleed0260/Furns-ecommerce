@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
-// import {HiArrowsPointingOut} from "react-icons/hi"
-// import {IoGitCompareOutline} from "react-icons/io"
 import {AiOutlineShoppingCart, AiOutlineHeart, AiOutlineDelete} from "react-icons/ai"
 import Link from "next/link";
 import { useStore } from "../store";
 import toast, { Toaster } from "react-hot-toast";
+
 
 const ProductsPage = ({ items, src, key }) => {
   const [hover, setHover] = useState(false);
@@ -56,6 +55,7 @@ const ProductsPage = ({ items, src, key }) => {
     ); 
     }
   }
+
 
   return (
     <>
