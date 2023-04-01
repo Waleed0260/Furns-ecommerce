@@ -9,9 +9,9 @@ module.exports = {
   theme: {
     theme: {
       screens: {
-        'xsm': {'min': '519px', 'max': '639px'},
-        // => @media (min-width: 640px and max-width: 767px) { ... }
-        'sm': {'min': '640px', 'max': '767px'},
+        // 'xs': {'min': '519px', 'max': '639px'},
+        // // => @media (min-width: 519px and max-width: 639px) { ... }
+        'sm': {'min': '520px', 'max': '767px'},
         // => @media (min-width: 640px and max-width: 767px) { ... }
   
         'md': {'min': '768px', 'max': '1023px'},

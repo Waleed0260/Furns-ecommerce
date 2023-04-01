@@ -31,7 +31,7 @@ import { useStore } from '../store'
   return (
     <>
     <header>
-    <div className=" flex flex-row justify-between items-center	bg-white text-black w-screen h-20 p-14">
+    <div className=" flex flex-row justify-between items-center	bg-white text-black md:w-screen h-20 p-14 sm:w-screen">
       <div>
         <Link href="/">
         <Image src={header} alt="header" width={150} height={40}  />

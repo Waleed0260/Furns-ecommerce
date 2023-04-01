@@ -16,7 +16,7 @@ const Main = () => {
 }
 
   return (
-    <div className='bg-[#cbd5e1] flex lg:flex-row justify-around items-center lg:h-[34rem] w-screen sm:flex-col sm:h-[46rem] sm:w-screen'>
+    <div className='bg-[#cbd5e1] flex lg:flex-row justify-around items-center lg:h-[34rem] sm:w-screen sm:flex-col sm:h-[46rem]w-screen'>
       <motion.div
                       variants={variants} // Pass the variant object into Framer Motion 
                       initial="hidden" // Set the initial state to variants.hidden

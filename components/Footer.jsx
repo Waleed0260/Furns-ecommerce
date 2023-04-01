@@ -9,7 +9,7 @@ import {BsPinterest} from "react-icons/bs"
 
 const Footer = () => {
   return (
-    <div className='w-screen h-[24rem] bg-[#44403c] text-white flex justify-evenly items-center '>
+    <div className='md:w-screen h-[24rem] bg-[#44403c] text-white flex justify-evenly items-center sm:w-screen'>
       <div className='flex flex-col gap-5'>
         <h3 className='text-1xl font-semibold'>About us</h3>
         <p className='w-[300px]'>Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>

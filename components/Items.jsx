@@ -18,9 +18,9 @@ const Items = () => {
                 768: {
                     perPage: 3,
                 },
-                580: {
-                    perPage: 2,
-                }
+                // 580: {
+                //     perPage: 2,
+                // }
             },
               perPage: 4,
               pagination: false,
