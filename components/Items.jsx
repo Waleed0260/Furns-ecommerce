@@ -30,11 +30,11 @@ const Items = () => {
        }}
        className='md:w-[60rem] sm:w-[96vw] sm:mt-3'
             >
-      {data.map((items, index)=>{
+      {data.map((items, i)=>{
         return(
-          <SplideSlide className='flex justify-center items-center'>
+          <SplideSlide className='flex justify-center items-center' key={i}>
 
-            <div className='flex flex-col justify-center items-center h-[190px] w-[190px] border-2	border-black rounded-[100px] gap-3' key={index}>
+            <div className='flex flex-col justify-center items-center h-[190px] w-[190px] border-2	border-black rounded-[100px] gap-3' >
                 <Image src={items.image} alt="items" width={70} height={70}/>
                 <b>{items.title}</b>
             </div>
