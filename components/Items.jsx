@@ -7,27 +7,37 @@ import '@splidejs/react-splide/css';
 
 const Items = () => {
   return (
-    <div className='flex flex-row justify-center items-center p-20 gap-12'>
+    <div className='flex flex-row md:justify-center md:items-center md:p-20 md:gap-12 '>
       <Splide
             options={{
               type: "loop",
-              perMove: 1,
+              breakpoints: {
+                1024: {
+                    perPage: 4,
+                },
+                768: {
+                    perPage: 3,
+                },
+                580: {
+                    perPage: 2,
+                }
+            },
               perPage: 4,
               pagination: false,
               arrows: false,
               drag: "free",
               rewind: true, // Add rewind option
        }}
-       className='w-[60rem]'
+       className='md:w-[60rem] sm:w-[96vw] sm:mt-3'
             >
       {data.map((items, index)=>{
         return(
-          <SplideSlide>
+          <SplideSlide className='flex justify-center items-center'>
 
             <div className='flex flex-col justify-center items-center h-[190px] w-[190px] border-2	border-black rounded-[100px] gap-3' key={index}>
                 <Image src={items.image} alt="items" width={70} height={70}/>
                 <b>{items.title}</b>
-            </div>   
+            </div>
           </SplideSlide>
         )
       })}

@@ -16,7 +16,7 @@ const Main = () => {
 }
 
   return (
-    <div className='bg-[#cbd5e1] flex flex-row justify-around items-center h-[34rem] w-screen'>
+    <div className='bg-[#cbd5e1] flex lg:flex-row justify-around items-center lg:h-[34rem] w-screen sm:flex-col sm:h-[46rem] sm:w-screen'>
       <motion.div
                       variants={variants} // Pass the variant object into Framer Motion 
                       initial="hidden" // Set the initial state to variants.hidden
@@ -25,7 +25,7 @@ const Main = () => {
                       transition={transition} className='flex flex-col gap-5'>
         <p className='text-2xl text-[#737373]'>New Products</p>
         <h1 className='text-5xl font-bold '>Flexible Chair</h1>
-        <p className='w-[520px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam fugit fuga illum aut delectus non deserunt eligendi. Est, vitae rerum?</p>
+        <p className='w-[40vw]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam fugit fuga illum aut delectus non deserunt eligendi. Est, vitae rerum?</p>
         <Link href="/shop" className=' w-[150px]'>
         <button className='bg-[#f97316] text-white h-[50px] w-[150px] hover:bg-black hover:text-[#f97316] duration-500'>Buy Now</button>
         </Link>

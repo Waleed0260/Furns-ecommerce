@@ -42,7 +42,7 @@ const Products = ({post, category, trending}) => {
 
   return (
     <>
-      <div className="flex justify-center items-center flex-col gap-5 ">
+      <div className="flex lg:justify-center md:items-center flex-col gap-5 md:mx-8 sm:justify-center sm:items-center sm:mt-14">
         <h1 className="text-5xl font-bold">Our Products</h1>
         <p className="w-[450px] text-center">
           Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo
@@ -54,7 +54,7 @@ const Products = ({post, category, trending}) => {
           <b className={sale ? "text-[#f97316] cursor-pointer": "text-black cursor-pointer"} onClick={handleSale}>On Sale</b>
           <b className={trend ? "text-[#f97316] cursor-pointer": "text-black cursor-pointer"} onClick={handleTrend}>Trending</b>
         </div>
-        <div className="grid grid-cols-4 gap-12 ml-14 p-6	">
+        <div className="grid lg:grid-cols-4 lg:ml-14 p-6	lg:gap-16 md:grid-cols-3 md:gap-x-[11rem] md:ml-[-3rem] sm:grid-cols-2 sm:gap-x-[7rem] sm:ml-[-3rem] xsm:grid-cols-1 ">
           {/* <ProductsPage post={post}/> */}
           {items && post.map((items, i)=>{
           const src = urlFor(items.image).url();
