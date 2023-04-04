@@ -33,7 +33,7 @@ const SidePage = ({ open, close }) => {
   return (
     <>
     <div className="fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)] z-[1000]">
-      <div className="bg-white w-[28rem] z-[1000] fixed top-0 bottom-0 right-0 flex flex-col overflow-visible">
+      <div className="bg-white xs:w-[28rem] 2xs:w-[24rem] z-[1000] fixed top-0 bottom-0 right-0 flex flex-col overflow-visible">
         <div className="flex flex-col justify-between items-center">
           <div className="h-[60px] w-[24rem] flex flex-row justify-between items-center p-[20px]">
             <b>Cart</b>
