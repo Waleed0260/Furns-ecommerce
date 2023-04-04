@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Modal, useMantineTheme } from '@mantine/core';
 import { useStore } from '../store';
-import { createOrder } from '../lib/orderhandler';
+import { createOrder } from '../lib/orderHandler';
 import toast, { Toaster } from "react-hot-toast";
 
 
