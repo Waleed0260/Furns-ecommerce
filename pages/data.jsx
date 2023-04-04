@@ -28,8 +28,7 @@ const Data = () => {
     removeItem(i);
   };
 
-  const total = () =>
-    CartData.items.reduce((a, b) => a + b.quantity * b.price, 0);
+  const total = () =>   CartData.items.reduce((a, b) => a + b.quantity * b.price, 0);
 
     const resCart = ()=>{
         resetCart()

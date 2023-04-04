@@ -25,7 +25,7 @@ const ProductsPage = ({ items, src, key }) => {
         {
           duration: 2000,
         }
-      );    } else {
+      );} else {
 
     }
   }
