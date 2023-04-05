@@ -43,15 +43,15 @@ const Data = () => {
       <div className="flex justify-center items-center flex-col py-12">
         
               <>
-              <table className="xs:w-[72vw] 2xs:w-[50rem] overflow-scroll">
+              <table className="xs:w-[72vw] 2xs:w-[95vw] overflow-scroll">
                 <thead className="bg-[#ccfbf1] h-16">
                   <tr>
                     <th>Image</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Action</th>
+                    <th className="xs:table-cell 2xs:hidden">Total</th>
+                    <th className="xs:table-cell 2xs:hidden">Action</th>
                   </tr>
                 </thead>
                 {CartData.items.length > 0 ? (
@@ -75,11 +75,11 @@ const Data = () => {
                     </td>
                     <td className="text-center">{items.price}</td>
                     <td className="text-center">{items.quantity}</td>
-                    <td className="text-center">
+                    <td className="text-center xs:table-cell 2xs:hidden">
                       {items.price * items.quantity}
                     </td>
                     <td
-                      className="text-center px-5 "
+                      className="text-center px-5 xs:table-cell 2xs:hidden"
                       onClick={() => handleRemove(i)}
                     >
                       <FaSkullCrossbones className="hover:text-[#f97316] cursor-pointer" />
@@ -97,38 +97,37 @@ const Data = () => {
           </div>
         )}
               </table>
-              <div className="flex justify-end items-center gap-4 h-[60px] border-t-0 border-2 w-[50vw]">
+              <div className="flex justify-end items-center gap-4 h-[60px] border-t-0 border-2 xs:w-[72vw] 2xs:w-[95vw]">
               <b className="text-[#f97316] relative right-14">Grand Total:</b>
               <b className="relative right-12">${total()}</b>
             </div>
             </>
-            
       </div>
 
       <div className=" flex justify-center items-center">
-        <div className="w-[62rem] h-[80px] bg-[#ccfbf1] my-12 flex justify-around items-center gap-3">
-          <form action="">
+        <div className="w-[72vw] xs:h-[80px] 2xs:h-[300px] bg-[#ccfbf1] my-12 flex xs:flex-row 2xs:flex-col justify-around items-center gap-3">
+          <form action="" className="flex 2xs:flex-col xs:flex-row xs:gap-0 2xs:gap-2">
             <input
               type="text"
-              className="h-[50px] w-[220px] border-[#f97316] border-[1px] "
+              className="h-[50px] xs:w-[220px] 2xs:w-[60vw] border-[#f97316] border-[1px] "
               placeholder="Enter Coupon Here"
             />
             <button
               type="submit"
-              className="h-[50px] w-[160px] bg-[#f97316] text-white hover:bg-[#44403c] duration-300"
+              className="h-[50px] xs:w-[160px] 2xs:w-[60vw] bg-[#f97316] text-white hover:bg-[#44403c] duration-300"
             >
-              {" "}
+              
               Apply Coupon
             </button>
           </form>
-          <div className="flex gap-2">
+          <div className="flex xs:flex-row 2xs:flex-col gap-2">
             <button
-              className="h-[50px] w-[160px] bg-[#f97316] hover:bg-[#44403c] text-white duration-300 rounded-[4px]"
+              className="h-[50px] xs:w-[160px] 2xs:w-[60vw] bg-[#f97316] hover:bg-[#44403c] text-white duration-300 rounded-[4px]"
               onClick={resCart}
             >
               CLEAR CART
             </button>
-              <button className="h-[50px] w-[250px] bg-[#44403c] hover:bg-[#f97316] text-white duration-300 rounded-[4px]" onClick={handleonDelivery}>
+              <button className="h-[50px] xs:w-[250px] 2xs:w-[60vw] bg-[#44403c] hover:bg-[#f97316] text-white duration-300 rounded-[4px]" onClick={handleonDelivery}>
                 PAY ON DELIVERY
               </button>
           </div>

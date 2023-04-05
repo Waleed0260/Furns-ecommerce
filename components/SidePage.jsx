@@ -42,7 +42,7 @@ const SidePage = ({ open, close }) => {
             </span>
             
           </div>
-          <div className="flex flex-col h-[520px] w-[24rem] overflow-auto gap-4">
+          <div className="flex flex-col xs:h-[520px] 2xs:h-[400px] xs:w-[24rem] 2xs:w-[18rem] overflow-auto gap-4">
             {CartItems.length > 0
               ? CartItems.map((items, i) => {
                   const src = urlFor(items.image).url();
