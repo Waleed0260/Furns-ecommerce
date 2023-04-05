@@ -38,13 +38,13 @@ const Wishlist = () => {
       </div>
       <div className="flex justify-center items-center flex-col py-12">
         <table className="xs:w-[72vw] 2xs:w-[95vw]">
-          <thead className="bg-[#ccfbf1] h-16 xs:w-auto 2xs:w-[99vw]">
+          <thead className="bg-[#ccfbf1] h-16">
             <tr>
               <th>Image</th>
               <th>Name</th>
               <th>Price</th>
-              <th className="xs:table-cell 2xs:hidden">QTY</th>
               <th>Add to cart</th>
+              <th className="xs:table-cell 2xs:hidden">QTY</th>
               <th className="xs:table-cell 2xs:hidden">Action</th>
             </tr>
           </thead>
@@ -81,6 +81,15 @@ const Wishlist = () => {
                       </td>
                       <td className="text-center">{items.price}</td>
                       <td className="text-center">
+                        <button
+                          className="bg-[#f97316] text-white h-[30px] w-[90px]"
+                          onClick={handleCart}
+                        >
+                          Add to cart
+                        </button>
+                      </td>
+                      <td className="text-center">
+                        
                         <div className="xs:flex flex-row justify-center items-center p-2  2xs:hidden ">
                           <span
                             className="border-[#f97316] border-[1px] h-[50px] w-[20px] flex justify-center items-center duration-500 hover:bg-[#f97316] hover:text-white cursor-pointer"
@@ -99,14 +108,7 @@ const Wishlist = () => {
                           </span>
                         </div>
                       </td>
-                      <td className="text-center">
-                        <button
-                          className="bg-[#f97316] text-white h-[30px] w-[90px]"
-                          onClick={handleCart}
-                        >
-                          Add to cart
-                        </button>
-                      </td>
+
                       <td
                         className="text-center px-5 xs:table-cell 2xs:hidden"
                         onClick={() => handleRemove(i)}
