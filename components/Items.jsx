@@ -28,7 +28,7 @@ const Items = () => {
               drag: "free",
               rewind: true, // Add rewind option
        }}
-       className='md:w-[60rem] sm:w-[96vw] sm:mt-3 2xs:w-[90vw]'
+       className='md:w-[60rem] sm:w-[96vw] sm:mt-3 2xs:w-[90vw] xs:mt-0 2xs:mt-4'
             >
       {data.map((items, i)=>{
         return(

@@ -25,12 +25,9 @@ const Wishlist = () => {
 
   const handleRemove = (i) => {
     removeItem(i);
-    toast.error(
-      ("Successfully deleted!.\n\, Your product is deleted from cart"),
-      {
-        duration: 4000,
-      }
-    );  
+    toast.error("Successfully deleted!.\n, Your product is deleted from cart", {
+      duration: 4000,
+    });
   };
 
   return (
@@ -40,38 +37,35 @@ const Wishlist = () => {
         <p>HOME/WISH</p>
       </div>
       <div className="flex justify-center items-center flex-col py-12">
-        
-              <>
-              {CartData.wish.length > 0 ? (
-          CartData.wish.map((items, i) => {
-            const src = urlFor(items.image).url();
-            
-            const handleCart= ()=>{
-                addItem({...items, quantity: Quantity, price: items.price});
-                toast.success(
-                  ("Successfully Added!.\n\, Your product is added to cart"),
-                  {
-                    duration: 2000,
-                  }
-                );    
-            }
-            return (
+        <table className="xs:w-[72vw] 2xs:w-[95vw]">
+          <thead className="bg-[#ccfbf1] h-16 xs:w-auto 2xs:w-[99vw]">
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th className="xs:table-cell 2xs:hidden">QTY</th>
+              <th>Add to cart</th>
+              <th className="xs:table-cell 2xs:hidden">Action</th>
+            </tr>
+          </thead>
 
-                <table className="w-[67rem]" key={i}>
-                  <thead className="bg-[#ccfbf1] h-16">
-                    <tr>
-                      <th>Image</th>
-                      <th>Name</th>
-                      <th>Price</th>
-                      <th>QTY</th>
-                      <th>Add to cart</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  
+          <>
+            {CartData.wish.length > 0 ? (
+              CartData.wish.map((items, i) => {
+                const src = urlFor(items.image).url();
 
-                  <tbody className="m-10">
-                    <tr className="border-2" key={i}>
+                const handleCart = () => {
+                  addItem({ ...items, quantity: Quantity, price: items.price });
+                  toast.success(
+                    "Successfully Added!.\n, Your product is added to cart",
+                    {
+                      duration: 2000,
+                    }
+                  );
+                };
+                return (
+                  <tbody className="m-10" key={i}>
+                    <tr className="border-2" >
                       <td className=" flex justify-center items-center text-center py-3">
                         <Image
                           loader={() => src}
@@ -87,9 +81,9 @@ const Wishlist = () => {
                       </td>
                       <td className="text-center">{items.price}</td>
                       <td className="text-center">
-                        <div className="flex flex-row justify-center items-center p-2 ">
+                        <div className="xs:flex flex-row justify-center items-center p-2  2xs:hidden ">
                           <span
-                          className="border-[#f97316] border-[1px] h-[50px] w-[20px] flex justify-center items-center duration-500 hover:bg-[#f97316] hover:text-white cursor-pointer"
+                            className="border-[#f97316] border-[1px] h-[50px] w-[20px] flex justify-center items-center duration-500 hover:bg-[#f97316] hover:text-white cursor-pointer"
                             onClick={() => handleQuantity("dec")}
                           >
                             -
@@ -114,31 +108,27 @@ const Wishlist = () => {
                         </button>
                       </td>
                       <td
-                        className="text-center px-5 "
+                        className="text-center px-5 xs:table-cell 2xs:hidden"
                         onClick={() => handleRemove(i)}
                       >
                         <FaSkullCrossbones className="hover:text-[#f97316] cursor-pointer" />
                       </td>
                     </tr>
                   </tbody>
-                 
-                </table>
                 );
               })
             ) : (
-              <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col justify-center items-center  relative top-[30px] left-[20vw]">
                 <span>
                   <AiOutlineShoppingCart className="h-[50px] w-[50px] text-[#f97316]" />
                 </span>
                 <b>You have not added any items</b>
               </div>
             )}
-              </>
+          </>
+        </table>
       </div>
-      <Toaster
-  position="top-right"
-  reverseOrder={false}
-/>
+      <Toaster position="top-right" reverseOrder={false} />
     </Layout>
   );
 };

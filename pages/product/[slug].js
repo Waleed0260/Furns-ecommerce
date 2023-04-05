@@ -76,28 +76,28 @@ const Product = ({ details }) => {
   return (
     <Layout>
       <div className="w-screen h-[250px] bg-[#ccfbf1] flex flex-col justify-center items-center gap-3 mb-4">
-        <h2 className="text-5xl font-bold">{details.name.slice(0,50)}...</h2>
+        <h2 className="text-4xl font-bold">{details.name.slice(0,50)}...</h2>
         <p>HOME/PRODUCTS/{details.name.slice(0, 30)}...</p>
       </div>
-      <div className="flex flex-row justify-between p-20 gap-4">
+      <div className="flex md:flex-row 2xs:flex-col justify-between p-20 gap-4">
         <div>
           <Image
             loader={() => src}
             src={src}
             alt="products-image"
             height={700}
-            width={1100}
+            width={600}
           />
         </div>
-        <div className="flex flex-col gap-4 ">
+        <div className="flex flex-col gap-4 xs:m-0 2xs:ml-[-60px] ">
           <p>SKU: LBED</p>
           <p>Availability: In Stock</p>
 
           <b className="text-3xl">{details.name}</b>
           <p className="text-2xl">{details.price}.0 $</p>
-          <p>{details.detail}</p>
-          <div className="flex flex-row gap-4">
-            <div className="flex flex-row justify-between items-center p-2 ">
+          <p className="md:w-[50vw] 2xs:w-[80vw]">{details.detail}</p>
+          <div className="flex sm:flex-row 2xs:flex-col gap-4">
+            <div className="flex flex-row justify-between items-center p-2 sm:w-auto 2xs:w-[160px] ">
               <span className="border-[#f97316] border-[1px] h-[50px] w-[30px] flex justify-center items-center duration-500 hover:bg-[#f97316] hover:text-white cursor-pointer" onClick={()=>handleQuantity("dec")}>-</span>
               <span className="border-[#f97316] border-[1px] h-[50px] w-[100px] border-l-0 flex justify-center items-center">{Quantity}</span>
               <span className="border-[#f97316] border-[1px] h-[50px] w-[30px] border-l-0 flex justify-center items-center duration-500 hover:bg-[#f97316] hover:text-white cursor-pointer" onClick={()=>handleQuantity("inc")}>+</span>

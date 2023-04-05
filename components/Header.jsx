@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import header from "../images/header.png"
 import {AiOutlineSearch} from "react-icons/ai"
 import {BsPerson} from "react-icons/bs"
-import {AiOutlineShoppingCart} from "react-icons/ai"
+import {AiOutlineShoppingCart, AiOutlineMenu} from "react-icons/ai"
 import Link from 'next/link'
 import SideCart from './SideCart'
 import { useStore } from '../store'
@@ -41,10 +41,12 @@ import { useStore } from '../store'
         <div className='flex flex-row gap-5'>
         <span><AiOutlineSearch className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <span onClick={handleClick}><BsPerson className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
+        <Link href="/data">
         <div className='flex flex-end gap-4 z-50 cursor-pointer '>
         <span><AiOutlineShoppingCart className='h-[28px] w-[28px] cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <div className='absolute flex justify-center items-center bg-[#f97316] text-white h-[15px] w-[15px] rounded-[50%]'>{number}</div>
         </div>
+        </Link>
         </div>
         {options ?
     <div className='bg-white text-black flex shadow-2xl'>
@@ -61,8 +63,8 @@ import { useStore } from '../store'
       </div>
 
     </div>
-    <nav className="bg-[#44403c] xs:h-14 xs:w-screen xs:block 2xs:hidden">
-      <ul className="flex flex-row justify-center items-center gap-5 text-white p-4">
+    <nav className="bg-[#44403c] xs:h-14 xs:w-screen ">
+      <ul className="xs:flex flex-row justify-center items-center gap-5 text-white p-4 2xs:hidden">
         <li className="list-none"><Link href="/">Home</Link></li>
         <li  className="list-none">About</li>
         <li  className="list-none">Home Furniture</li>
@@ -70,6 +72,7 @@ import { useStore } from '../store'
         <li  className="list-none">Hospital Furniture</li>
         <li  className="list-none">Contact</li>
       </ul>
+      <span className='xs:hidden 2xs:flex text-white 2xs:justify-start p-4'><AiOutlineMenu className='h-[20px] w-[20px]'/></span>
     </nav>
   </header>
   <SideCart/>

@@ -89,7 +89,7 @@ const Data = () => {
                 );
           })
         ) : (
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center relative top-[30px] left-[20vw]">
             <span>
               <AiOutlineShoppingCart className="h-[50px] w-[50px] text-[#f97316]" />
             </span>
@@ -116,7 +116,6 @@ const Data = () => {
               type="submit"
               className="h-[50px] xs:w-[160px] 2xs:w-[60vw] bg-[#f97316] text-white hover:bg-[#44403c] duration-300"
             >
-              
               Apply Coupon
             </button>
           </form>
