@@ -35,7 +35,7 @@ const SidePage = ({ open, close }) => {
     <div className="fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)] z-[1000]">
       <div className="bg-white xs:w-[28rem] 2xs:w-[24rem] z-[1000] fixed top-0 bottom-0 right-0 flex flex-col overflow-visible">
         <div className="flex flex-col justify-between items-center">
-          <div className="h-[60px] w-[24rem] flex flex-row justify-between items-center p-[20px]">
+          <div className="h-[60px] xs:w-[24rem] 2xs:w-[18rem] flex flex-row justify-between items-center p-[20px]">
             <b>Cart</b>
             <span>
               <FaSkullCrossbones onClick={close} className="cursor-pointer"/>
@@ -79,7 +79,7 @@ const SidePage = ({ open, close }) => {
                 </div>}
           </div>
           <Link href="/data">
-          <div className=" cursor-pointer h-[60px] w-[24rem] bg-[#f97316] flex flex-row justify-between items-center text-white p-[20px] hover:bg-[#44403c] duration-300">
+          <div className=" cursor-pointer h-[60px] xs:w-[24rem] 2xs:w-[18rem] bg-[#f97316] flex flex-row justify-between items-center text-white p-[20px] hover:bg-[#44403c] duration-300">
             <b>View Cart</b>
             <button
               className="h-[40px] w-[70px] bg-white text-[#f97316] radius-[10px] rounded-[5px]"

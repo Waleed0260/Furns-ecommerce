@@ -43,7 +43,7 @@ const Data = () => {
       <div className="flex justify-center items-center flex-col py-12">
         
               <>
-              <table className="w-[62rem]">
+              <table className="xs:w-[72vw] 2xs:w-[50rem] overflow-scroll">
                 <thead className="bg-[#ccfbf1] h-16">
                   <tr>
                     <th>Image</th>
@@ -97,7 +97,7 @@ const Data = () => {
           </div>
         )}
               </table>
-              <div className="flex justify-end items-center gap-4 h-[60px] border-t-0 border-2 w-[62rem]">
+              <div className="flex justify-end items-center gap-4 h-[60px] border-t-0 border-2 w-[50vw]">
               <b className="text-[#f97316] relative right-14">Grand Total:</b>
               <b className="relative right-12">${total()}</b>
             </div>
