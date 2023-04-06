@@ -28,14 +28,14 @@ const Items = () => {
               drag: "free",
               rewind: true, // Add rewind option
        }}
-       className='md:w-[60rem] sm:w-[96vw] sm:mt-3 2xs:w-[90vw] xs:mt-0 md:mt-4'
+       className='md:w-[60rem] sm:w-[96vw] sm:mt-3 2xs:w-[90vw] lg:mt-0 md:mt-4'
             >
       {data.map((items, i)=>{
         return(
           <SplideSlide className='flex justify-center items-center' key={i}>
 
             <div className='flex flex-col justify-center items-center md:h-[190px] md:w-[190px] 2xs:h-[120px] 2xs:w-[120px] border-2	border-black rounded-[100px] gap-3' >
-                <Image src={items.image} alt="items" className='h-[60px] w-[60px]'/>
+                <Image src={items.image} alt="items" width={70} height={70}/>
                 <b>{items.title}</b>
             </div>
           </SplideSlide>

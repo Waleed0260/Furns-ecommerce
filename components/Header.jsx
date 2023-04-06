@@ -34,11 +34,11 @@ import { useStore } from '../store'
     <div className=" flex flex-row sm:justify-between items-center	bg-white text-black sm:w-screen h-20 p-14 xs:ml-0 2xs:w-screen 2xs:justify-between 2xs:ml-[-40px]">
       <div>
         <Link href="/">
-        <Image src={header} alt="header" className='h-[40px] w-[170px]' />
+        <Image src={header} alt="header" width={150} height={40}  />
         </Link>
       </div>
       <div className='flex flex-col absolute top-[40px] xs:right-[120px] 2xs:right-[10px]'>
-        <div className='flex flex-row sm:gap-5 2xs:gap-1'>
+        <div className='flex flex-row sm:gap-5 xs:gap-1'>
         <span><AiOutlineSearch className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <span onClick={handleClick}><BsPerson className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <Link href="/data">
