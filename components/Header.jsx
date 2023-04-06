@@ -38,7 +38,7 @@ import { useStore } from '../store'
         </Link>
       </div>
       <div className='flex flex-col absolute top-[40px] xs:right-[120px] 2xs:right-[10px]'>
-        <div className='flex flex-row sm:gap-5 xs:gap-1'>
+        <div className='flex flex-row sm:gap-5 2xs:gap-2'>
         <span><AiOutlineSearch className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <span onClick={handleClick}><BsPerson className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <Link href="/data">
