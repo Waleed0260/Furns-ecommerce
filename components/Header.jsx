@@ -37,8 +37,8 @@ import { useStore } from '../store'
         <Image src={header} alt="header" className='h-[40px] w-[170px]' />
         </Link>
       </div>
-      <div className='flex flex-col absolute top-[40px] right-[120px] 2xs:right-[70px]'>
-        <div className='flex flex-row gap-5'>
+      <div className='flex flex-col absolute top-[40px] xs:right-[120px] 2xs:right-[10px]'>
+        <div className='flex flex-row sm:gap-5 2xs:gap-1'>
         <span><AiOutlineSearch className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <span onClick={handleClick}><BsPerson className='h-6 w-6 cursor-pointer hover:text-[#f97316] duration-200'/></span>
         <Link href="/data">

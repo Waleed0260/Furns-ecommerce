@@ -38,7 +38,7 @@ const Products = ({ post, category, trending }) => {
 
   return (
     <>
-      <div className="sm:flex lg:justify-center md:items-center flex-col gap-5 md:mx-8  2xs:mt-14 ">
+      <div className="sm:flex lg:justify-center md:items-center flex-col gap-5 md:mx-8 sm:mx-10  2xs:mt-14">
         <h1 className="text-5xl font-bold">Our Products</h1>
         <p className="md:w-[450px] text-center 2xs:w-[330px]">
           Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo
@@ -86,7 +86,7 @@ const Products = ({ post, category, trending }) => {
             Trending
           </b>
         </div>
-        <div className="grid lg:grid-cols-4 lg:ml-14 p-6	lg:gap-16 md:grid-cols-3 md:gap-x-[11rem] md:ml-[-3rem] sm:grid-cols-2 sm:gap-x-[7rem] 2xs:ml-[-4rem] 2xs:grid-cols-1">
+        <div className="grid lg:grid-cols-4 lg:ml-14 p-6 xs:bg-transparent	lg:gap-16 md:grid-cols-3 md:gap-x-[11rem] md:ml-[-3rem] sm:grid-cols-2  sm:gap-x-[7rem] 2xs:ml-[-5rem] 2xs:grid-cols-1 ">
           {/* <ProductsPage post={post}/> */}
           {items &&
             post.map((items, i) => {
