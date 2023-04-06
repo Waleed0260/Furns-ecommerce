@@ -1,18 +1,21 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import Main from "../components/Main";
-import Items from "../components/Items";
-import Products from "../components/Products";
 import { client } from "../lib/client";
 import React from "react";
-import Sale from "../components/Sale";
-import Layout from "../components/Layout";
 import { motion } from "framer-motion";
+import dynamic from 'next/dynamic'
+const Main = dynamic(() => import('../components/Main'))
+const Items = dynamic(() => import('../components/Items'))
+const Products = dynamic(() => import('../components/Products'))
+const Sale = dynamic(() => import('../components/Sale'))
+const Layout = dynamic(() => import('../components/Layout'))
+
+
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({post, category, trending}) {
-
-
 
 
   return (
@@ -28,7 +31,7 @@ export default function Home({post, category, trending}) {
       >
         <Main/>
          <Items/>
-        <Products post={post} category={category} trending={trending}/>
+          <Products post={post} category={category} trending={trending}/>
         <Sale/>
       </motion.main>
     </div>

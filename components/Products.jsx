@@ -38,17 +38,17 @@ const Products = ({ post, category, trending }) => {
 
   return (
     <>
-      <div className="sm:flex lg:justify-center md:items-center flex-col gap-5 md:mx-8 sm:mx-10  2xs:mt-14">
-        <h1 className="text-5xl font-bold">Our Products</h1>
+      <div className="sm:flex lg:justify-center md:items-center flex-col gap-5 md:mx-8 sm:mx-10  2xs:mt-14 2xs:relative left-8">
+        <h1 className="text-5xl font-bold 2xs:w-[300px]">Our Products</h1>
         <p className="md:w-[450px] text-center 2xs:w-[330px]">
           Lorem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo
           tempor incididunt ut labore
         </p>
-        <div className="flex flex-row xs:gap-10 p-5 2xs:gap-2">
+        <div className="flex flex-row xs:gap-10 p-5 2xs:gap-4">
           <b
             className={
               items
-                ? "text-[#f97316] cursor-pointer"
+                ? "text-[#f97316] cursor-pointer w-[800px]"
                 : "text-black cursor-pointer"
             }
             onClick={handleItems}
