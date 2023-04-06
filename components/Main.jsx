@@ -37,7 +37,7 @@ const Main = () => {
        exit="exit" // Exit state (used later) to variants.exit
        transition={transition}
       className=' flex flex-col'>
-        <Image src={slider1} alt="main" height={100} width={400} />
+        <Image src={slider1} alt="main" className='h-[300px] w-[350px]' />
       </motion.div>
     </div>
   )

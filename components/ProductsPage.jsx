@@ -59,7 +59,7 @@ const ProductsPage = ({ items, src, key }) => {
 
   return (
     <>
-    <div className="flex flex-col justify-center items-center cursor-pointer lg:w-[270px] lg:h-[370px] md:w-[240px] sm:w-[380px] 2xs:w-[420px]" key={key} onMouseOver={handleMouseOver}
+    <div className="flex flex-col justify-center items-center cursor-pointer lg:w-[270px] lg:h-[370px] md:w-[240px] sm:w-[380px] 2xs:w-[420px]" key={items.id} onMouseOver={handleMouseOver}
     onMouseLeave={() => setHover(false)}>
       <span className="bg-[#cbd5e1] p-3 relative top-12 left-24 rounded-[100px]  duration-500 hover:bg-[#f97316] hover:text-white" onClick={handleWish}>{clickWish === 1 ? <AiOutlineHeart/>: <AiOutlineDelete/>}</span>
 
@@ -69,8 +69,8 @@ const ProductsPage = ({ items, src, key }) => {
           loader={() => src}
           src={src}
           alt="image"
-          height={270}
           width={270}
+          height={270}
         />
         </Link>
       </div>

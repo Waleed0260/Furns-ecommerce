@@ -11,7 +11,7 @@ const shop = ({products}) => {
         <h2 className="text-5xl font-bold">Product</h2>
         <p>HOME/SHOP</p>
       </div>
-      <div className="grid grid-cols-4 gap-12 ml-14 p-6	">
+      <div className="grid lg:grid-cols-4 lg:ml-14 p-6	lg:gap-16 md:grid-cols-3 md:gap-x-[11rem] md:ml-[-3rem] sm:grid-cols-2 sm:gap-x-[7rem] 2xs:ml-[-5rem] 2xs:grid-cols-1">
 
       {products.map((items, i)=>{
         const src = urlFor(items.image).url();
