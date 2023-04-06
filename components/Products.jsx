@@ -48,7 +48,7 @@ const Products = ({ post, category, trending }) => {
           <b
             className={
               items
-                ? "text-[#f97316] cursor-pointer w-[800px]"
+                ? "text-[#f97316] cursor-pointer"
                 : "text-black cursor-pointer"
             }
             onClick={handleItems}
