@@ -3,7 +3,6 @@ import { urlFor } from "../lib/client";
 import ProductsPage from "./ProductsPage";
 
 const Products = ({ post, category, trending }) => {
-  const [hover, setHover] = useState(false);
 
   const [items, setItems] = useState(true);
   const [feature, setFeature] = useState(false);
