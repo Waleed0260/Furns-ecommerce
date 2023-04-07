@@ -10,7 +10,7 @@ import {BsPinterest} from "react-icons/bs"
 const Footer = () => {
   return (
     <div className='md:w-screen md:h-[24rem] bg-[#44403c] text-white jus flex md:flex-row justify-evenly items-center sm:w-screen 2xs:flex-col 2xs:h-[44rem] 2xs:w-screen 2xs:justify-items-left '>
-      <div className='flex flex-col gap-5 2xs:relative 2xs:left-[-60px]'>
+      <div className='flex flex-col gap-5 '>
         <h3 className='text-1xl font-semibold'>About us</h3>
         <p className='md:w-[300px] 2xs:w-[300px]'>Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
         <div className='flex flex-row gap-4 cursor-pointer'>
@@ -23,7 +23,7 @@ const Footer = () => {
       </div>
 
 
-      <div className='xs:flex flex-col gap-5 2xs:relative 2xs:left-[-130px]'>
+      <div className='xs:flex flex-col gap-5 2xs:relative 2xs:left-[-60px]'>
         <h3  className='text-1xl font-semibold'>Information</h3>
         <ul className='flex flex-col gap-3'>
           <li className='cursor-pointer'>About us</li>
@@ -34,7 +34,7 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div className='flex flex-col gap-5 2xs:relative 2xs:left-[-150px]'>
+      <div className='flex flex-col gap-5 2xs:relative 2xs:left-[-80px]'>
         <h3  className='text-1xl font-semibold'>My Account</h3>
         <ul className='flex flex-col gap-3'>
           <li className='cursor-pointer'>Login</li>
