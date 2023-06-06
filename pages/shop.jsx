@@ -4,7 +4,6 @@ import { client, urlFor } from '../lib/client'
 import ProductsPage from '../components/ProductsPage'
 
 const shop = ({products}) => {
-  console.log(products)
   return (
     <Layout>
       <div className="w-screen h-[250px] bg-[#ccfbf1] flex flex-col justify-center items-center gap-3 mb-4">
